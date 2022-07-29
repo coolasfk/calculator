@@ -7,6 +7,7 @@ const textDisplay_current = document.getElementById('textDisplay_current');
 const textDisplay_prev = document.getElementById('textDisplay_prev');
 const operation_btn = document.getElementById('operation_btn');
 const equalButton = document.querySelector('[data-equal]');
+const deleteBtn = document.querySelector('[data-delete]')
 
 
 numberButtons.forEach(number => {
@@ -26,10 +27,19 @@ function chooseOperand(operation) {
     textDisplay_prev.innerText = textDisplay_current.innerText;
     textDisplay_current.innerText = '';
     operation_btn.innerText = operation.innerText;
+
+
+
 }
 
+deleteBtn.addEventListener('click', () => {
+    delete_func()
+})
 
+function delete_func() {
+    textDisplay_current.innerText = textDisplay_current.innerText.slice(0, -1)
 
+}
 
 allClearBtn.addEventListener('click', () => {
     clear()
@@ -48,10 +58,13 @@ function compute(){
    let operation = operation_btn.innerText;
 
 
+
+
     const prev = parseFloat(textDisplay_prev.innerText);
-    console.log(prev)
+
     const current = parseFloat(textDisplay_current.innerText);
 
+    if(isNaN(prev) || isNaN(current)) return
 
 
     switch(operation) {
@@ -71,6 +84,8 @@ function compute(){
        
     }
 
+    operation = undefined
+
    textDisplay_current.innerText = computation
    textDisplay_prev.innerText = ''
    operation_btn.innerText = ''
@@ -81,8 +96,10 @@ function compute(){
 
 
 function appendNumber(number){
+
+   if(number.innerText === "." && textDisplay_current.innerText.includes('.')) return
+    textDisplay_current.innerText = textDisplay_current.innerText + number.innerText 
    
-    textDisplay_current.innerText = textDisplay_current.innerText + number.innerText
 }
 
 function clear(){

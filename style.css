@@ -6,7 +6,7 @@ body {
 #display {
     border: 4px solid white;
     width: 240px;
-    min-height: 100px;
+    min-height: 50px;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-all;
@@ -15,7 +15,6 @@ body {
     font-family: 'Space Mono', monospace;
     margin: 100px 0 0 0;
     text-align: right;
-
 }
 
 .calculator-grid {
@@ -40,6 +39,7 @@ body {
     font-family: 'Space Mono', monospace;
     border-radius: 50%;
 }
+
 .calculator-grid > button:hover {
     border: 6px solid white;
 
@@ -47,24 +47,28 @@ body {
 
 
 #textDisplay_current {
+    
     color: white;
     text-align: right;
     text-justify: right;
     font-family: 'Space Mono', monospace;
-    font-size: 2rem;
-    margin: -3vw 0 0 0;
-   
+    font-size: 2.3rem;
+    white-space: none;
+    line-height: 1.1rem;
+    
     
 }
+
 #textDisplay_prev {
     
-    color: white; 
+    color:  rgb(255, 255, 255, 0.7); 
     text-align: right;
     text-justify: right;
     font-family: 'Space Mono', monospace;
-    font-size: 1rem;
-    text-align: top;
-    margin: 0 0 -3vw 0;
+    font-size: 0.3 rem;
+    line-height: 1.1 rem;
+    
+   
 }
 
 .number {
@@ -79,12 +83,12 @@ body {
 }
 
 p {
-    padding: 0px 5px 0 5px;
     color: white;
     font-family: 'Space Mono', monospace;
     font-size: 1.5rem;
-
+    
 }
+
 #clear {
     grid-column: span 2;
     border-radius: 0%;
@@ -93,5 +97,9 @@ p {
 #equal {
     grid-row: span 2;
     border-radius: 0%;
+}
+#operation_btn {
+    margin: -25px 0 -25px 0;
+    color:  rgb(255, 255, 255, 0.7); 
 }
 
